@@ -12,7 +12,7 @@ Installation
 ### Clone this repo to your computer.
 ### Download the data
 * Download data files into a "data" folder 
-    * create an account and download your datat from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx)
+    * create an account and download your data from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx)
 * Extract the '.csv' files from the `.zip` file you downloaded.
     * On OSX, you can run `find ./ -name \*.zip -exec unzip {} \;`.
     * At the end, you should have a bunch of csv files called `energy_use_M_D_Y.csv`
