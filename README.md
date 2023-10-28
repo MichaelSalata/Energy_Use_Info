@@ -1,22 +1,21 @@
-Project Title
+Energy Use Info
 -----------------------
-**Intro Paragraph**:
-* Project Purpose
-* what it does
-* origin & original purpose of the data
-* project background info
+**Introduction**:
+* This project is meant to give insight on my house's energy use.
+* It cleans dirty data and, creates intuitive graphs & conclusions from my houses energy usage data.
+* Data was downloaded from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx).
+* Currently downloading your data requires logging in using your comed account details.
+
 
 Installation
 ----------------------
 ### Clone this repo to your computer.
 ### Download the data
 * Download data files into a "data" folder 
-    * create an account at [insert_website.com](http://www.insert_website.com)
-    * You can find data_file1 at [this link](http://google.com).
-    * You can find data_file2 at [this link](http://google.com).
-* Extract all of the `.zip` files you downloaded.
+    * create an account and download your datat from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx)
+* Extract the '.csv' files from the `.zip` file you downloaded.
     * On OSX, you can run `find ./ -name \*.zip -exec unzip {} \;`.
-    * At the end, you should have a bunch of text files called `Acquisition_YQX.txt`, and `Performance_YQX.txt`, where `Y` is a year, and `X` is a number from `1` to `4`.
+    * At the end, you should have a bunch of csv files called `energy_use_M_D_Y.csv`
 * delete all the '.zip' files
 
 ### Install the requirements
@@ -25,7 +24,7 @@ Installation
     * Make sure you use Python 3.
     * You may want to use a virtual environment for this.
 
-Settings
+Settings  BELOW_THIS_IS_NOT_COMPLETE
 --------------------
 
 Look in `settings.py` for the configuration options.
