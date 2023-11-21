@@ -1,13 +1,13 @@
 Energy Use Info
 -----------------------
 **Introduction**:
-* This project is meant to give insight on my house's energy use.
-* It cleans dirty data and, creates intuitive graphs & conclusions from my houses energy usage data.
-* Data was downloaded from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx).
-* Currently downloading your data requires logging in using your comed account details.
+* This project gives insight on my house's energy use.
+* It cleans dirty data from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx) & weather data downloaded using [Meteostat](https://github.com/meteostat/meteostat-python).
+* It creates intuitive graphs & conclusions from the cleaned data.
+- [ ] **TODO:** Make the project usable by the public. aka. People can use their Green Button Electricity Data and Address to auto-generate insights.
 
 
-Installation
+Installation - **NOT COMPLETE**
 ----------------------
 ### Clone this repo to your computer.
 ### Download the data
