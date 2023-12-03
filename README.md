@@ -1,22 +1,31 @@
 Energy Use Info
 -----------------------
 ## Introduction
-* This roject gives insight on my house's energy use. It cleans dirty data and, creates intuitive graphs & conclusions from my house's weather & energy usage data.
+* This project creates insight on energy usage patterns in relation to time & weather.
+    * It requires (downloadable) [ComEd](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx) & [Meteostat](https://github.com/meteostat/meteostat-python) data spreadsheets.
+    * It cleans dirty data and creates intuitive graphs & conclusions a location's weather & energy usage data.
+* Currently, the jupyter notebooks output were last run on my house's data.
+-[ ] **TODO:** create a runnable python script to  
 ### Data
 * Energy Data was downloaded from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx).
 * Weather data was collected using [Meteostat](https://github.com/meteostat/meteostat-python).
 
 Installation
 ----------------------
-#### Clone this repo to your computer.
-#### Download your ComEd Usage data
-* create a folder titled "data"
-* Download spreadsheet (csv) files into the "data" folder
-    * create an account and download your data from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx)
+#### Clone this repo
+#### Download your ComEd Usage Data
+* create a folder titled "data" in the same folder as the project
+* Download spreadsheet(csv)** files into the "data" folder
+    * Navigate to [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx)
+    * Log in using your ComEd account
+    * Under `Download my data` select `Export usage` for a range of days
+    * Pick a date range (1 Month or 1 Year is recommended)
+    * Click **EXPORT**
 * Extract the '.csv' files from the `.zip` file you downloaded.
     * **On OSX:** run `find ./ -name \*.zip -exec unzip {} \;`.
-    * you should have at least 1 csv file called `energy_use_M_D_Y.csv`
-    * place that file in the "data" folder
+    * you should have at least 1 csv file called `cec_electric_interval_data_Service 1_M1_D1_Y1_to_M2_D2_Y2.csv`
+* Rename the '.csv' from `cec_electric_interval_data_Service 1_M1_D1_Y1_to_M2_D2_Y2.csv` to `energy_use_M1_D1_Y1_to_M2_D2_Y2.csv`
+* place that file in the "data" folder
 #### Download your Weather data
 * Install [Meteostat](https://github.com/meteostat/meteostat-python/tree/master#installation)
 * Use meteostat to get your weather data (**python code below**):
