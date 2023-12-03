@@ -5,21 +5,21 @@ Energy Use Info
     * It requires (downloadable) [ComEd](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx) & [Meteostat](https://github.com/meteostat/meteostat-python) data spreadsheets.
     * It cleans dirty data and creates intuitive graphs & conclusions a location's weather & energy usage data.
 * Currently, the jupyter notebooks output were last run on my house's data.
--[ ] **TODO:** create a runnable python script to  
+
+-[ ] **TODO:** combine jupyter notebooks into runnable python script to for easy public use  
 ### Data
-* Energy Data was downloaded from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx).
-* Weather data was collected using [Meteostat](https://github.com/meteostat/meteostat-python).
+* **Energy data** is downloaded from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx).
+* **Weather data** is downloaded using [Meteostat](https://github.com/meteostat/meteostat-python).
 
 Installation
 ----------------------
 #### Clone this repo
 #### Download your ComEd Usage Data
 * create a folder titled "data" in the same folder as the project
-* Download spreadsheet(csv)** files into the "data" folder
+* Download spreadsheet(csv) files into the "data" folder
     * Navigate to [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx)
     * Log in using your ComEd account
-    * Under `Download my data` select `Export usage` for a range of days
-    * Pick a date range (1 Month or 1 Year is recommended)
+    * Under `Download my data` select `Export usage` for a **date range** (1 Month or 1 Year is recommended)
     * Click **EXPORT**
 * Extract the '.csv' files from the `.zip` file you downloaded.
     * **On OSX:** run `find ./ -name \*.zip -exec unzip {} \;`.
