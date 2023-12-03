@@ -45,7 +45,7 @@ y=-108.4281002
 z=18.54
 location = Point(x, y, z)
 
-# Get daily data for 2018
+# Get daily data
 data = Hourly(location, start, end)
 data = data.fetch()
 file_name = f'weather_{start_m}-{start_d}-{start_y}_to_{end_m}-{end_d}-{end_y}.csv'
