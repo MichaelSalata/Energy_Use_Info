@@ -11,7 +11,7 @@ Example Graphs
 -----------------------
 ![](https://i.imgur.com/2qTrv9n.png)
 ![](https://i.imgur.com/J4BfXVa.png)
-![](https://i.imgur.com/MIfk2kF.png)
+![](https://imgur.com/xsd6Iv6.png)
 ### Data Used
 * **Energy data** is downloaded from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx).
 * **Weather data** is downloaded using [Meteostat](https://github.com/meteostat/meteostat-python).
