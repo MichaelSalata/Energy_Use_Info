@@ -95,7 +95,8 @@ jupyter nbconvert --execute --to notebook --inplace electricity_and_weather_anal
 ```
 FUTURE IMPROVEMENTS
 -----------------------
--[ ] Create an script that pulls the date range of the ComEd so that it only requires the location
--[ ] combine jupyter notebooks into runnable python script to for easy public use 
--[ ] Generalize the code to run on arbitrary weather & electricity values
--[ ] Research how to parse Green Button XML data, then any company with Green Button is compatible (many)
+**TODO**
+- [ ] combine jupyter notebooks into runnable python script to for easy public use
+- [ ] Generalize the code to run on arbitrary weather & electricity values
+- [ ] Create a script that pulls the date range of the ComEd data so that getting the weather data only requires the location
+- [ ] Research how to parse Green Button XML data, then any company with Green Button is compatible (many)
