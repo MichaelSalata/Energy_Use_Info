@@ -9,7 +9,7 @@ Energy Use Info
 
 Example Graphs
 -----------------------
-![](https://i.imgur.com/2qTrv9n.png)
+![](https://i.imgur.com/h7eCHMI.png)
 ![](https://i.imgur.com/J4BfXVa.png)
 ![](https://imgur.com/xsd6Iv6.png)
 ### Data Used
