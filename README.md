@@ -1,22 +1,76 @@
 Energy Use Info
 -----------------------
-**Introduction**:
-* This project is meant to give insight on my house's energy use.
-* It cleans dirty data and, creates intuitive graphs & conclusions from my houses energy usage data.
-* Data was downloaded from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx).
-* Currently downloading your data requires logging in using your comed account details.
+## Introduction
+* This project creates insight on energy usage patterns in relation to time & weather.
+    * It requires (downloadable) [ComEd](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx) & [Meteostat](https://github.com/meteostat/meteostat-python) data spreadsheets.
+    * Cleans dirty data
+    * Creates intuitive graphs & conclusions
 
+
+Example Graphs
+-----------------------
+![](https://i.imgur.com/h7eCHMI.png)
+![](https://i.imgur.com/J4BfXVa.png)
+![](https://imgur.com/xsd6Iv6.png)
+### Data Used
+* **Energy data** is downloaded from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx).
+* **Weather data** is downloaded using [Meteostat](https://github.com/meteostat/meteostat-python).
 
 Installation
 ----------------------
-### Clone this repo to your computer.
-### Download the data
-* Download data files into a "data" folder 
-    * create an account and download your data from [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx)
-* Extract the '.csv' files from the `.zip` file you downloaded.
-    * On OSX, you can run `find ./ -name \*.zip -exec unzip {} \;`.
-    * At the end, you should have a bunch of csv files called `energy_use_M_D_Y.csv`
-* delete all the '.zip' files
+#### Clone this repo
+#### Download your Data
+##### Download your ComEd Usage Data
+* create a folder titled "**data**" inside this project
+* Download spreadsheet(csv) files into the "**data**" folder
+    * Navigate to [Comed's Green Button Download webpage](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/GreenButtonConnectDownloadMyData.aspx)
+    * Log in using your ComEd account
+    * Under `Download my data`
+        * Click `Green Button Download my data`
+        * Set `Format` to `CSV`
+        * Use `Export usage for a range of days` (1 Month or 1 Year is recommended)
+
+* Extract '**.csv**' files from the `.zip` file you downloaded.
+    * **On OSX:** run `find ./ -name \*.zip -exec unzip {} \;`.
+    * example: **cec_electric_interval_data_Service**_M1_D1_Y1_to_M2_D2_Y2.csv
+* Rename the '.csv' to **energy_use**_M1_D1_Y1_to_M2_D2_Y2.csv
+* place that file in the **data** folder
+##### Download your Weather data
+* Install [Meteostat](https://github.com/meteostat/meteostat-python/tree/master#installation)
+```sh
+pip install meteostat
+```
+* Use meteostat to get your weather data (**python code below**):
+    * replace the **start** & **end** dates with your ComEd Data **date range**
+    * replace **x, y, z** with **longitude, latitude, altitude** for the location you want weather
+```python
+# Import Meteostat library and dependencies
+from datetime import datetime
+from meteostat import Point, Hourly
+
+# Set date range
+start_y = your_start_year
+start_m = your_start_month
+start_d = your_start_day
+start = datetime(start_y, start_m, start_d)
+
+end_y = your_end_year
+end_m = your_end_month
+end_d = your_end_day
+end = datetime(end_y, end_m, end_d)
+
+# Create Point for Weather Data
+x=your_longitude
+y=your_latitude
+z=your_altitude
+location = Point(x, y, z)
+
+# Get daily data
+data = Hourly(location, start, end)
+data = data.fetch()
+file_name = f'weather_{start_m}-{start_d}-{start_y}_to_{end_m}-{end_d}-{end_y}.csv'
+data.to_csv(file_name)
+```
 
 ### Install the requirements
 * make sure you're in the main "project_title" folder with "requirements.txt"
@@ -24,48 +78,25 @@ Installation
     * Make sure you use Python 3.
     * You may want to use a virtual environment for this.
 
-Settings  BELOW_THIS_IS_NOT_COMPLETE
---------------------
-
-Look in `settings.py` for the configuration options.
-Configuration Option Overview:
-
-* `EXAMPLE_CONFIG0` -- config description
-* `EXAMPLE_CONFIG1` -- config description
-* `EXAMPLE_CONFIG2` -- config description
-
-Private Settings
---------------------
-* Create a file named `private.py` in this folder.
-    * Add a value named `PRIVATE_TOKEN_EG`
-    * Assign your API token to it.
-
 Usage
+----------------------
+### Analyze your Data - (Run the Jupyter Notebooks)
+In this order run the Jupyter notebooks
+1. green_button_data_cleaning.ipynb
+2. green_button_data_analysis.ipynb
+3. weather_data_cleaning.ipynb
+4. electricity_and_weather_analysis.ipynb
+**example linux commands**
+```console
+jupyter nbconvert --execute --to notebook --inplace green_button_data_cleaning.ipynb
+jupyter nbconvert --execute --to notebook --inplace green_button_data_analysis.ipynb
+jupyter nbconvert --execute --to notebook --inplace weather_data_cleaning.ipynb
+jupyter nbconvert --execute --to notebook --inplace electricity_and_weather_analysis.ipynb
+```
+FUTURE IMPROVEMENTS
 -----------------------
-
-* Run `mkdir processed` to create a directory for our processed datasets.
-* Run `python assemble.py` to combine the `Acquisition` and `Performance` datasets.
-    * This will create `Acquisition.txt` and `Performance.txt` in the `processed` folder.
-* Run `python annotate.py`.
-    * This will create training data from `Acquisition.txt` and `Performance.txt`.
-    * It will add a file called `train.csv` to the `processed` folder.
-* Run `python predict.py`.
-    * This will run cross validation across the training set, and print the accuracy score.
-
-Extending this
--------------------------
-
-If you want to extend this work, here are a few places to start:
-
-* Generate more features in `annotate.py`.
-* Switch algorithms in `predict.py`.
-* Add in a way to make predictions on future data.
-* Try seeing if you can predict if a bank should have issued the loan.
-    * Remove any columns from `train` that the bank wouldn't have known at the time of issuing the loan.
-        * Some columns are known when Fannie Mae bought the loan, but not before
-    * Make predictions.
-* Explore seeing if you can predict columns other than `foreclosure_status`.
-    * Can you predict how much the property will be worth at sale time?
-* Explore the nuances between performance updates.
-    * Can you predict how many times the borrower will be late on payments?
-    * Can you map out the typical loan lifecycle?
+**TODO**
+- [ ] combine jupyter notebooks into runnable python script to for easy public use
+- [ ] Generalize the code to run on arbitrary weather & electricity values
+- [ ] Create a script that pulls the date range of the ComEd data so that getting the weather data only requires the location
+- [ ] Research how to parse Green Button XML data, then any company with Green Button is compatible (many)
