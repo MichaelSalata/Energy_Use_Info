@@ -88,15 +88,16 @@ In this order run the Jupyter notebooks
 4. electricity_and_weather_analysis.ipynb
 **example linux commands**
 ```console
-jupyter nbconvert --execute --to notebook --inplace green_button_data_cleaning.ipynb
-jupyter nbconvert --execute --to notebook --inplace green_button_data_analysis.ipynb
-jupyter nbconvert --execute --to notebook --inplace weather_data_cleaning.ipynb
-jupyter nbconvert --execute --to notebook --inplace electricity_and_weather_analysis.ipynb
+# replace "path" with the location of the cloned directory
+jupyter nbconvert --execute --to notebook --inplace --ExecutePreprocessor.kernel_name=local-venv ~/path/Energy_Use_Info/green_button_data_cleaning.ipynb
+jupyter nbconvert --execute --to notebook --inplace --ExecutePreprocessor.kernel_name=local-venv ~/path/Energy_Use_Info/green_button_data_analysis.ipynb
+jupyter nbconvert --execute --to notebook --inplace --ExecutePreprocessor.kernel_name=local-venv ~/path/Energy_Use_Info/weather_data_cleaning.ipynb
+jupyter nbconvert --execute --to notebook --inplace --ExecutePreprocessor.kernel_name=local-venv ~/path/Energy_Use_Info/electricity_and_weather_analysis.ipynb
 ```
 FUTURE IMPROVEMENTS
 -----------------------
 **TODO**
-- [ ] combine jupyter notebooks into runnable python script to for easy public use
 - [ ] Generalize the code to run on arbitrary weather & electricity values
+- [ ] combine jupyter notebooks into runnable python script to for easy public use
 - [ ] Create a script that pulls the date range of the ComEd data so that getting the weather data only requires the location
 - [ ] Research how to parse Green Button XML data, then any company with Green Button is compatible (many)
